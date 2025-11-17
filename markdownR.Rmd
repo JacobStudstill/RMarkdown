@@ -1,0 +1,41 @@
+---
+title: "My R Markdown Primer"
+author: "Jacob Studstill"
+date: "2025-11-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+The markdown in R contains plain text as well as chunks of R code. I use markdowns when I am completing labs in my other R courses because the instruction between the R chunks instructs me what to do and the R chunks is where I write the R. I like this more than having to tab back and forth between the instructions and my code.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+a <- sample(1:100, 1)
+b <- sample(1:100, 1)
+
+latexProblem <- paste0("$", a, " + ", b, " = \\, ?$")
+
+latexProblem
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(ggplot2)
+
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point() +
+  labs(title = "Speed vs Distance To Stop",
+       x = "Speed",
+       y = "Stopping Distance")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
